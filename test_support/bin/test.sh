@@ -60,8 +60,8 @@ cd test_app
 echo "
 source 'http://rubygems.org'
 
-gem 'rails', '>=3.1'
-gem "jquery-rails"
+gem 'rails', '~> 3.1.0.rc4'
+gem 'jquery-rails'
 platforms :jruby do
   gem 'jruby-openssl'
   gem 'activerecord-jdbcsqlite3-adapter'
