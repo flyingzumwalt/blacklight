@@ -7,6 +7,9 @@
     
     <title><%= h(@page_title || application_name) %></title>
     <link href="<%= opensearch_catalog_path %>" title="<%= application_name%>" type="application/opensearchdescription+xml" rel="search"/>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
     
     <%= raw(render_head_content) %>
     
