@@ -52,7 +52,7 @@ fi
 
 rvm use "$@" --create
 check_errs $? "rvm failed.  please run 'rvm install $@', and then re-run these tests." 
-gem install --no-rdoc --no-ri 'rails'
+gem install --no-rdoc --no-ri 'rails' --pre
 gem install --no-rdoc --no-ri 'bundler'
 gem install --no-rdoc --no-ri 'devise'
 rails new test_app
@@ -60,7 +60,8 @@ cd test_app
 echo "
 source 'http://rubygems.org'
 
-gem 'rails', '>=3.0.4'
+gem 'rails', '>=3.1'
+gem "jquery-rails"
 platforms :jruby do
   gem 'jruby-openssl'
   gem 'activerecord-jdbcsqlite3-adapter'
@@ -74,7 +75,7 @@ gem 'blacklight', :path => '../../'
 # For testing
 group :development, :test do 
        gem 'rspec'
-       gem 'rspec-rails', '~>2.5.0'       
+       gem 'rspec-rails', '~>2.6.0'       
        gem 'generator_spec'
        gem 'cucumber-rails'
        gem 'database_cleaner'  

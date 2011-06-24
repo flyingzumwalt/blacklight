@@ -71,8 +71,6 @@ module BlacklightHelper
   # stylesheet_links << ["stylesheet1.css", "stylesheet2.css", {:cache => "mykey"}]
   # javascript_includes << ["myjavascript.js", {:plugin => :myplugin} ]
   def render_head_content
-    render_stylesheet_includes +
-    render_js_includes +
     render_extra_head_content
   end
   
