@@ -20,8 +20,6 @@ module Blacklight::Controller
 
     # extra head content
     base.send :helper_method, :extra_head_content
-    base.send :helper_method, :stylesheet_links
-    base.send :helper_method, :javascript_includes
   end
 
   
@@ -40,9 +38,6 @@ module Blacklight::Controller
     # http://api.rubyonrails.org/classes/ActionController/Filters/ClassMethods.html
     # for how to turn off a filter in a sub-class and such.
     def default_html_head
-      stylesheet_links << ['yui', 'jquery/ui-lightness/jquery-ui-1.8.1.custom.css', 'blacklight/blacklight', {:media=>'all'}]
-      
-      javascript_includes << ['jquery-1.4.2.min.js', 'jquery-ui-1.8.1.custom.min.js', 'blacklight/blacklight' ]
     end
     
     
@@ -50,21 +45,6 @@ module Blacklight::Controller
     # See ApplicationHelper#render_head_content for details.
     def extra_head_content
       @extra_head_content ||= []
-    end
-
-    
-    # Array, where each element is an array of arguments to
-    # Rails stylesheet_link_tag helper. See
-    # ApplicationHelper#render_head_content for details.
-    def stylesheet_links
-      @stylesheet_links ||= []
-    end
-    
-    # Array, where each element is an array of arguments to
-    # Rails javascript_include_tag helper. See
-    # ApplicationHelper#render_head_content for details.
-    def javascript_includes
-      @javascript_includes ||= []
     end
     
     protected
