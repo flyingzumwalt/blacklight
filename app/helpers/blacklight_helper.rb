@@ -334,7 +334,7 @@ module BlacklightHelper
   def add_facet_params(field, value)
     p = params.dup
     p[:f] = params[:f].nil? ? {} : params[:f].dup  # the command above is not deep in rails3, !@#$!@#$
-    p[:f][field] ||= []
+    p[:f][field] = params[:f][field].nil? ? [] : params[:f][field].dup
     p[:f][field].push(value)
     p
   end
@@ -373,6 +373,7 @@ module BlacklightHelper
     # if the values aren't dup'd, then the values
     # from the session will get remove in the show view...
     p[:f] = p[:f].dup
+    p[:f][field] = p[:f][field].nil? ? [] : p[:f][field].dup
     p.delete :page
     p.delete :id
     p.delete :counter
